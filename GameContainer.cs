@@ -368,13 +368,20 @@ namespace Invert.IOC
     }
     public class TypeRelationCollection : List<TypeRelation>
     {
-        
+        private Dictionary<string, TypeRelation> _relations = new Dictionary<string, TypeRelation>();
+
+        public Dictionary<string, TypeRelation> Relations
+        {
+            get { return _relations; }
+            set { _relations = value; }
+        }
+
         public Type this[Type from, Type to]
         {
             get
             {
-                var mapping = this.FirstOrDefault(p => p.From == from && p.To == to);
-                if (mapping != null)
+                TypeRelation mapping;
+                if (Relations.TryGetValue(from.FullName + to.FullName,out mapping))
                 {
                     return mapping.Concrete;
                 }
@@ -382,15 +389,14 @@ namespace Invert.IOC
             }
             set
             {
-                var mapping = this.FirstOrDefault(p => p.From == from && p.To == to);
-                if (mapping == null)
+                TypeRelation mapping;
+                if (Relations.TryGetValue(from.FullName + to.FullName, out mapping))
                 {
-                    Add(new TypeRelation() { From = from, To = to, Concrete = value });
+                    mapping.Concrete = value;
                 }
                 else
                 {
-                    mapping.Concrete = value;
-
+                    Relations.Add(from.FullName + to.FullName, new TypeRelation() { From = from, To = to, Concrete = value });
                 }
             }
         }
