@@ -6,6 +6,11 @@ namespace uFrame.Attributes
     {
 
     }
+
+    public class AsyncAction : ActionMetaAttribute
+    {
+        
+    }
     public class ActionTitle : ActionMetaAttribute
     {
         public string Title { get; set; }
