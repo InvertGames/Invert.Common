@@ -30,6 +30,17 @@ namespace uFrame.Attributes
             Description = description;
         }
     }
+
+    public class Description : ActionAttribute
+    {
+        public string Text { get; set; }
+
+        public Description(string text)
+        {
+            Text = text;
+        }
+    }
+
     public class ActionAttribute : Attribute
     {
 
@@ -142,6 +153,7 @@ namespace uFrame.Attributes
         {
             Title = title;
         }
+
 
     }
 }
