@@ -15,9 +15,21 @@ namespace uFrame.Attributes
     {
         public string Title { get; set; }
 
+        public ActionTitle()
+        {
+        }
+
         public ActionTitle(string title)
         {
             Title = title;
+        }
+    }
+
+    public class ActionTypeConverter : ActionTitle
+    {
+
+        public ActionTypeConverter()
+        {
         }
 
     }
