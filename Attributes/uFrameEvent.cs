@@ -53,6 +53,10 @@ namespace uFrame.Attributes
         }
     }
 
+    public class Optional : ActionAttribute
+    {
+    }
+
     public class ActionAttribute : Attribute
     {
 
