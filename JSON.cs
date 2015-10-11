@@ -718,7 +718,7 @@ namespace Invert.Json {
                 return this as JSONClass;
             }
         }
-#if !PORTABLE
+#if !PORTABLE && !DLL
         public virtual Quaternion AsQuaternion
         {
             get
