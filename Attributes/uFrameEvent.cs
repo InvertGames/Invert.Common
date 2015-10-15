@@ -11,6 +11,11 @@ namespace uFrame.Attributes
     {
         
     }
+
+    public class ActionTypeSelection : ActionAttribute
+    {
+        public Type AssignableTo { get; set; }
+    }
     public class ActionTitle : ActionMetaAttribute
     {
         public string Title { get; set; }
@@ -57,7 +62,7 @@ namespace uFrame.Attributes
     {
     }
 
-    public class ActionAttribute : Attribute
+    public class ActionAttribute : ActionMetaAttribute
     {
 
     }
