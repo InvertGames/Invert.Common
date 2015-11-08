@@ -27,4 +27,32 @@ namespace uFrame.Attributes
         {
         }
     }
+
+    public class ComponentId : Attribute
+    {
+        public ComponentId(int identifier)
+        {
+            Identifier = identifier;
+        }
+
+        public int Identifier { get; set; }
+
+        public ComponentId()
+        {
+        }
+    }
+
+    public class EventId : Attribute
+    {
+        public EventId(int identifier)
+        {
+            Identifier = identifier;
+        }
+
+        public int Identifier { get; set; }
+
+        public EventId()
+        {
+        }
+    }
 }
